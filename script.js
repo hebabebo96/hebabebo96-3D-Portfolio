@@ -2,6 +2,31 @@ const pages = document.querySelectorAll('.page');
 const htmlRoot = document.getElementById('html-root');
 const shapes = document.querySelectorAll('.geo-shape, .code-symbol');
 
+const allFaces = [];
+pages.forEach((page) => {
+  const front = page.querySelector('.front');
+  const back = page.querySelector('.back');
+  if (front) allFaces.push({ page, face: front });
+  if (back) allFaces.push({ page, face: back });
+});
+
+let mobileStep = 0;
+
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+function renderMobileFace() {
+  pages.forEach((p) => p.classList.remove('active-mobile-page'));
+  allFaces.forEach((item) => item.face.classList.remove('active-face'));
+
+  const current = allFaces[mobileStep];
+  if (current) {
+    current.page.classList.add('active-mobile-page');
+    current.face.classList.add('active-face');
+  }
+}
+
 function updateZIndex() {
   pages.forEach((page, index) => {
     if (page.classList.contains('flipped')) {
@@ -11,7 +36,22 @@ function updateZIndex() {
     }
   });
 }
-updateZIndex();
+
+if (isMobile()) {
+  renderMobileFace();
+} else {
+  updateZIndex();
+}
+
+window.addEventListener('resize', () => {
+  if (isMobile()) {
+    renderMobileFace();
+  } else {
+    pages.forEach((p) => p.classList.remove('active-mobile-page'));
+    allFaces.forEach((item) => item.face.classList.remove('active-face'));
+    updateZIndex();
+  }
+});
 
 pages.forEach((page) => {
   page.addEventListener('click', (e) => {
@@ -20,6 +60,12 @@ pages.forEach((page) => {
       e.target.closest('button') ||
       e.target.closest('.skill-card')
     ) {
+      return;
+    }
+
+    if (isMobile()) {
+      mobileStep = (mobileStep + 1) % allFaces.length;
+      renderMobileFace();
       return;
     }
 
@@ -41,6 +87,7 @@ document.addEventListener('mousemove', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
+  if (isMobile()) return;
   const isRTL = htmlRoot.getAttribute('dir') === 'rtl';
   if (e.key === 'ArrowLeft') {
     for (let i = 0; i < pages.length; i++) {
@@ -103,6 +150,11 @@ function toggleLanguage(event) {
     }
   });
 
-  pages.forEach((p) => p.classList.remove('flipped'));
-  setTimeout(updateZIndex, 100);
+  if (isMobile()) {
+    mobileStep = 0;
+    renderMobileFace();
+  } else {
+    pages.forEach((p) => p.classList.remove('flipped'));
+    setTimeout(updateZIndex, 100);
+  }
 }

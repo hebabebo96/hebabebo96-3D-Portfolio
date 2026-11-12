@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ar" dir="rtl" id="html-root">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heba Soliman | Interactive 3D Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Fira+Code:wght@500;700&family=Poppins:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="aurora-bg">
+      <div class="aurora-blob blob-coral"></div>
+      <div class="aurora-blob blob-sky"></div>
+      <div class="aurora-blob blob-mint"></div>
+      <div class="aurora-blob blob-amber"></div>
+    </div>
+
+    <div class="interactive-shapes" id="shapes-layer">
+      <div class="code-symbol shape-tag" data-speed="25">&lt;/&gt;</div>
+      <div class="code-symbol shape-brackets" data-speed="-30">{ }</div>
+      <div class="code-symbol shape-react" data-speed="40"><i class="fab fa-react"></i></div>
+      <div class="code-symbol shape-node" data-speed="-20"><i class="fab fa-node-js"></i></div>
+      <div class="code-symbol shape-code" data-speed="35">const code</div>
+      <div class="code-symbol shape-db" data-speed="-25"><i class="fas fa-database"></i></div>
+      <div class="code-symbol shape-js" data-speed="30">JS</div>
+      <div class="code-symbol shape-semicolon" data-speed="-35">;</div>
+    </div>
+
+    <button class="lang-switch-btn" onclick="toggleLanguage(event)">
+      <i class="fas fa-globe"></i> <span>English</span>
+    </button>
+
+    <div class="scene">
+      <div class="book" id="book">
+        <div class="book-spine"></div>
+        <div class="book-shadow"></div>
+
+        <div class="page" id="p1" style="z-index: 4">
+          <div class="front cover-front">
+            <div class="card-top-ribbon"></div>
+            <div class="content">
+              <div class="profile-wrapper">
+                <div class="profile-aura"></div>
+                <div class="profile-ring"></div>
+                <div class="profile">
+                  <img src="heba.jpeg" alt="Heba Soliman" />
+                </div>
+              </div>
+              <span
+                class="badge"
+                data-ar="✨ مطورة ويب متكاملة"
+                data-en="✨ Full Stack Developer"
+                >✨ مطورة ويب متكاملة</span
+              >
+              <h1 class="title" data-ar="هبه سليمان" data-en="Heba Soliman">
+                هبه سليمان
+              </h1>
+              <p
+                class="subtitle"
+                data-ar="أبني تجارب ويب مبهجة ومتكاملة"
+                data-en="Crafting Vibrant Full-Stack Experiences"
+              >
+                أبني تجارب ويب مبهجة ومتكاملة
+              </p>
+              <p
+                class="desc"
+                data-ar="أهلاً بك في معرض أعمالي التفاعلي. أجمع بين جمال التصميم وقوة البرمجة لبناء تطبيقات ويب متكاملة من الصفر."
+                data-en="Welcome to my interactive portfolio. Combining creative UI with powerful backend engineering to build complete web apps."
+              >
+                أهلاً بك في معرض أعمالي التفاعلي. أجمع بين جمال التصميم وقوة
+                البرمجة لبناء تطبيقات ويب متكاملة من الصفر.
+              </p>
+              <div class="flip-hint">
+                <span
+                  data-ar="اضغطي على الصفحة لفتح الكتاب"
+                  data-en="Click page to open book"
+                  >اضغطي على الصفحة لفتح الكتاب</span
+                >
+                <i class="fas fa-arrow-left hint-arrow"></i>
+              </div>
+            </div>
+            <span class="page-num">01</span>
+          </div>
+
+          <div class="back">
+            <div class="content">
+              <div class="section-icon icon-coral">
+                <i class="fas fa-sparkles"></i>
+              </div>
+              <h2 data-ar="من أنا" data-en="About Me">من أنا</h2>
+              <p
+                class="desc"
+                data-ar="شغوفة ببناء وتطوير المواقع بالكامل؛ بدءاً من تصميم واجهات مستخدم تفاعلية ومريحة للعين، وحتى برمجة الخوادم وقواعد البيانات القوية والآمنة."
+                data-en="Passionate about end-to-end web development; from designing engaging, user-friendly interfaces to architecting secure servers and databases."
+              >
+                شغوفة ببناء وتطوير المواقع بالكامل؛ بدءاً من تصميم واجهات مستخدم
+                تفاعلية ومريحة للعين، وحتى برمجة الخوادم وقواعد البيانات القوية
+                والآمنة.
+              </p>
+              <div class="stats-row">
+                <div class="stat-box box-sky">
+                  <span class="stat-num">Full Stack</span>
+                  <span
+                    class="stat-label"
+                    data-ar="تطوير متكامل"
+                    data-en="End-to-End"
+                    >تطوير متكامل</span
+                  >
+                </div>
+                <div class="stat-box box-mint">
+                  <span class="stat-num">100%</span>
+                  <span
+                    class="stat-label"
+                    data-ar="إتقان وشغف"
+                    data-en="Craft & Passion"
+                    >إتقان وشغف</span
+                  >
+                </div>
+              </div>
+            </div>
+            <span class="page-num">02</span>
+          </div>
+        </div>
+
+        <div class="page" id="p2">
+          <div class="front">
+            <div class="content">
+              <div class="section-icon icon-sky">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <h2 data-ar="المهارات التقنية" data-en="Tech Stack">
+                المهارات التقنية
+              </h2>
+              <div class="skills-grid">
+                <div class="skill-card sk-yellow">
+                  <i class="fab fa-js"></i>
+                  <span>JavaScript</span>
+                </div>
+                <div class="skill-card sk-sky">
+                  <i class="fab fa-react"></i>
+                  <span>React</span>
+                </div>
+                <div class="skill-card sk-green">
+                  <i class="fab fa-node"></i>
+                  <span>Node.js</span>
+                </div>
+                <div class="skill-card sk-slate">
+                  <i class="fas fa-server"></i>
+                  <span>Express.js</span>
+                </div>
+                <div class="skill-card sk-emerald">
+                  <i class="fas fa-database"></i>
+                  <span>MongoDB</span>
+                </div>
+                <div class="skill-card sk-amber">
+                  <i class="fas fa-plug"></i>
+                  <span>RESTful APIs</span>
+                </div>
+                <div class="skill-card sk-purple">
+                  <i class="fab fa-bootstrap"></i>
+                  <span>Bootstrap</span>
+                </div>
+                <div class="skill-card sk-orange">
+                  <i class="fab fa-git-alt"></i>
+                  <span>Git & GitHub</span>
+                </div>
+                <div class="skill-card sk-pink">
+                  <i class="fas fa-bolt"></i>
+                  <span>Thunder Client</span>
+                </div>
+                <div class="skill-card sk-teal">
+                  <i class="fas fa-brain"></i>
+                  <span>Problem Solving</span>
+                </div>
+              </div>
+            </div>
+            <span class="page-num">03</span>
+          </div>
+
+          <div class="back">
+            <div class="content">
+              <div class="section-icon icon-mint">
+                <i class="fas fa-award"></i>
+              </div>
+              <h2 data-ar="الخبرات" data-en="Experience">الخبرات</h2>
+              <p
+                class="desc"
+                data-ar="خبرة عملية في تحويل الأفكار والتصاميم الإبداعية إلى تطبيقات ويب حقيقية سريعة ومتجاوبة مع جميع الشاشات."
+                data-en="Practical experience transforming creative concepts into fast, responsive, real-world full-stack web applications."
+              >
+                خبرة عملية في تحويل الأفكار والتصاميم الإبداعية إلى تطبيقات ويب
+                حقيقية سريعة ومتجاوبة مع جميع الشاشات.
+              </p>
+              <div class="exp-cards">
+                <div class="exp-item">
+                  <div class="exp-badge bg-sky">
+                    <i class="fas fa-laptop-code"></i>
+                  </div>
+                  <span
+                    data-ar="تطوير واجهات تفاعلية حديثة بـ React"
+                    data-en="Modern Interactive UIs with React"
+                    >تطوير واجهات تفاعلية حديثة بـ React</span
+                  >
+                </div>
+                <div class="exp-item">
+                  <div class="exp-badge bg-coral">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <span
+                    data-ar="بناء قواعد بيانات و APIs احترافية"
+                    data-en="Building Robust APIs & Databases"
+                    >بناء قواعد بيانات و APIs احترافية</span
+                  >
+                </div>
+              </div>
+            </div>
+            <span class="page-num">04</span>
+          </div>
+        </div>
+
+        <div class="page" id="p3">
+          <div class="front">
+            <div class="content">
+              <div class="section-icon icon-amber">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <h2 data-ar="أبرز المشاريع" data-en="Featured Projects">
+                أبرز المشاريع
+              </h2>
+              <div class="projects-list">
+                <a href="#" target="_blank" class="project-link">
+                  <div class="project-icon bg-coral">
+                    <i class="fas fa-shopping-bag"></i>
+                  </div>
+                  <div class="project-info">
+                    <span
+                      class="project-title"
+                      data-ar="متجر إلكتروني تفاعلي"
+                      data-en="Interactive E-Commerce"
+                      >متجر إلكتروني تفاعلي</span
+                    >
+                    <small>React • Node.js • MongoDB</small>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square link-arrow"></i>
+                </a>
+                <a href="#" target="_blank" class="project-link">
+                  <div class="project-icon bg-sky">
+                    <i class="fas fa-chart-pie"></i>
+                  </div>
+                  <div class="project-info">
+                    <span
+                      class="project-title"
+                      data-ar="لوحة تحكم ذكية"
+                      data-en="Smart Dashboard UI"
+                      >لوحة تحكم ذكية</span
+                    >
+                    <small>Full Stack • REST API</small>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square link-arrow"></i>
+                </a>
+              </div>
+            </div>
+            <span class="page-num">05</span>
+          </div>
+
+          <div class="back cover-back">
+            <div class="content">
+              <div class="section-icon icon-coral">
+                <i class="fas fa-paper-plane"></i>
+              </div>
+              <h2 data-ar="تواصل معي" data-en="Contact Me">تواصل معي</h2>
+              <p
+                class="desc"
+                data-ar="هل لديك فكرة مشروع مميز؟ يسعدني جداً تواصلك معي لنبني معاً تجربة رقمية استثنائية."
+                data-en="Have an exciting project in mind? Let's connect and build an extraordinary digital experience together."
+              >
+                هل لديك فكرة مشروع مميز؟ يسعدني جداً تواصلك معي لنبني معاً
+                تجربة رقمية استثنائية.
+              </p>
+              <div class="contact-links">
+                <a href="mailto:hebasoliman9696@gmail.com" class="contact-item">
+                  <div class="contact-icon bg-coral">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <span>hebasoliman9696@gmail.com</span>
+                </a>
+                <a href="tel:+201099451247" class="contact-item">
+                  <div class="contact-icon bg-mint">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <span data-ar="اتصل بي مباشرة" data-en="Call Me Directly"
+                    >اتصل بي مباشرة</span
+                  >
+                </a>
+              </div>
+            </div>
+            <span class="page-num">06</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

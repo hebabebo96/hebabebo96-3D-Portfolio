@@ -3,7 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.book {
+  position: relative;
+  width: 380px;
+  max-width: 92vw;
+  height: 560px;
+  transform-style: preserve-3d;
+  transform: none !important;
+}
 body {
   font-family: "Cairo", "Poppins", sans-serif;
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
@@ -718,39 +725,43 @@ html[dir="ltr"] .hint-arrow {
 /* تجاوب احترافي مخصص للموبايل لمنع أي قص أو انزياح */
 @media (max-width: 768px) {
   body {
-    padding: 60px 10px 20px;
+    padding: 50px 10px 20px;
     align-items: center;
+    overflow-x: hidden;
   }
 
   .scene {
-    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .book {
-    width: 90vw;
-    max-width: 340px;
-    height: 510px;
+    width: 92vw;
+    max-width: 350px;
+    height: 530px;
   }
 
-  .front,
-  .back {
-    padding: 20px 14px;
-    border-radius: 22px;
+  .front, .back {
+    padding: 22px 16px;
+    border-radius: 24px;
+    /* ضمان ظهور الصفحة الحالية بوضوح تام فوق أي صفحات تانية */
+    backface-visibility: hidden;
   }
 
   .profile-wrapper {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     margin-bottom: 10px;
   }
 
   .profile {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
   }
 
   .title {
-    font-size: 1.55rem;
+    font-size: 1.6rem;
   }
 
   .content h2 {
@@ -759,7 +770,7 @@ html[dir="ltr"] .hint-arrow {
   }
 
   .desc {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     line-height: 1.55;
   }
 
@@ -770,7 +781,7 @@ html[dir="ltr"] .hint-arrow {
 
   .skill-card {
     padding: 8px 6px;
-    font-size: 0.75rem;
+    font-size: 0.76rem;
   }
 
   .code-symbol {

@@ -723,30 +723,52 @@ html[dir="ltr"] .hint-arrow {
 }
 
 /* تجاوب احترافي مخصص للموبايل لمنع أي قص أو انزياح */
+/* تجاوب ذكي جداً للشاشات الصغيرة والموبايل لعرض صفحة واحدة واضحة ومثالية */
 @media (max-width: 768px) {
   body {
-    padding: 50px 10px 20px;
+    padding: 20px 10px;
     align-items: center;
+    justify-content: center;
     overflow-x: hidden;
   }
 
   .scene {
     width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .book {
-    width: 92vw;
-    max-width: 350px;
-    height: 530px;
+    width: 100%;
+    max-width: 360px;
+    height: 560px;
+    /* إلغاء تأثير تداخل الصفحات الجانبية على الموبايل لتظهر صفحة بوضوح */
+  }
+
+  .page {
+    width: 100%;
+    height: 100%;
+    transform-origin: center center !important;
   }
 
   .front, .back {
-    padding: 22px 16px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 24px 18px;
     border-radius: 24px;
-    /* ضمان ظهور الصفحة الحالية بوضوح تام فوق أي صفحات تانية */
     backface-visibility: hidden;
+  }
+
+  /* تعديل دوران تقليب الصفحات على الموبايل لتكون سلسة وواضحة */
+  #html-root[dir="rtl"] .page.flipped {
+    transform: rotateY(-180deg);
+  }
+
+  #html-root[dir="ltr"] .page.flipped {
+    transform: rotateY(180deg);
   }
 
   .profile-wrapper {
@@ -785,7 +807,8 @@ html[dir="ltr"] .hint-arrow {
   }
 
   .code-symbol {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
+    opacity: 0.6; /* تقليل وضوح الرموز الخلفية قليلاً لتجنب زحمة الشاشة على الموبايل */
   }
 
   .lang-switch-btn {
